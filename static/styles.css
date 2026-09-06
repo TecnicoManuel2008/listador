@@ -1,3 +1,7 @@
+body{
+    background-color: rbg(255, 45, 97);
+}
+
 fieldset {
     width: 270px;
 }
