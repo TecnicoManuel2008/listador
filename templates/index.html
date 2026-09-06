@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+   <meta name="author" content="MK kabasa"/>
+   <meta name="description" content="Lista de tarefas"/>
+   <meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+   <title> Lista de tarefas </title>
+</head>
+<body>
+    <h1>Lista de tarefas </h1>
+    <p>Esta pagina serve para listar tarefas </p>
+    
+    <form action="{{ url_for('criar') }} " method="POST">
+         <fieldset>
+             <legend>Entrada da tarefa </legend>
+             <input type="text" placeholder="Descricao" name="task" id="task-desc">
+             <button type="submit">Adicionar</button>
+         </fieldset>
+    </form>
+    <p><strong>Lista de tarefas: </strong>
+    <ol>
+        {% for dados in tarefas %}
+           <li>
+               <form action="{{ url_for('deleta') }} " method="POST">
+                    {{ dados.description }} <button type="submit" name="del" value="{{ dados.id }}" >Excluir</button>
+               </form>
+            </li>
+        {% endfor %}
+    </ol>
+</body>
+</HTML>

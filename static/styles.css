@@ -1,0 +1,22 @@
+fieldset {
+    width: 270px;
+}
+li {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    padding: 8px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+}
+
+li form {
+   margin: 0;
+}
+
+buttom {
+  padding: 4px 10px;
+  cursor: pointer;
+}
