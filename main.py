@@ -38,6 +38,7 @@ def deleta():
          dados = session.query(Tasks).filter(Tasks.id==task_id).first()
          # apaga a task
          session.delete(dados)
+         
          session.commit()
          
          return redirect(url_for('main'))
