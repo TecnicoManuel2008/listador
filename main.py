@@ -8,9 +8,9 @@ app = Flask(__name__)
 def main():
     with Session() as session:
         dados = session.query(Tasks).all()
-        
+
     return render_template('index.html', tarefas=dados)
-    
+
 """ Criando a rota : /create que cria """
 @app.route('/create', methods=["POST"])
 def criar():
@@ -24,10 +24,10 @@ def criar():
            # adicionar a task no banco
            session.add(task)
            session.commit()
-           
+
        print(" << Adicionado com sucesso >>")
        return redirect(url_for('main'))
-       
+
 """ Criando a rota que delrta dados """
 @app.route("/delete", methods=["GET", "POST"])
 def deleta():
@@ -38,9 +38,9 @@ def deleta():
          dados = session.query(Tasks).filter(Tasks.id==task_id).first()
          # apaga a task
          session.delete(dados)
-         
+
          session.commit()
-         
+
          return redirect(url_for('main'))
     
 """ """
